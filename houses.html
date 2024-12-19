@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PROPERTIES</title>
+</head>
+<header>
+    <nav id="nav-bar">
+        <input type="text" id="search" placeholder="Enter Location" onkeydown="checkEnter(event)">
+        <div id="nav-links2">
+            <ul>
+                <li><a href="index.html" target="_blank" style="color: black;">ABOUT US</a></li>
+                <li><a href="reservations.html" target="_blank" style="color: black;">RESERVATIONS</a></li>
+            </ul>
+            <button id="btn2"><a href="contact.html" target="_blank" style="color: black;">CONTACT US</a></button>
+        </div>
+    </nav>  
+</header>
+<body id="body2">
+    <div id="us">
+         <p>Nyumbani real estates connects you with properties from all over Africa and beyond</p>
+    <p>Whether you are out for vacation in the coastlines of Zanzibar and Diani <br>Enjoying elephant watching in Botswana or amazed at the Marvellous Victoria falls in Zambia </p>
+    <p>Whether you are relocating to the vibrant cities of Dakar, Nairobi, Casablanca or Cape Town</p>
+    <p>At Nyumbani we've got you covered</p>
+    </div>
+    <div id="houses">
+        <h1>AVAILABLE PROPERTIES</h1>
+        <h1>Explore featured houses</h1>
+        <div id="South-Africa" title="South Africa">
+            <h2 >SOUTH AFRICA</h2>
+            <ul>
+            <li>
+                <div class="house-card">
+                    <img src="image2.jpg" alt="" id="house-image">
+                    <div class="house-info">
+                         <p><b>LOCATION: SOWETO, JO'BURG</b></p>
+                         <p><b>PRICE: 2000USD</b></p>
+                         <button id="btn3">RESERVE</button>
+                    </div>
+                </div>
+            </li>
+                <li>
+                    <div class="house-card">
+                        <img src="image3.jpg" alt="" id="house-image">
+                        <div class="house-info">
+                             <p><b>LOCATION: DOWNTOWN, PRETORIA</b></p>
+                             <p><b>PRICE:3500USD</b></p>
+                             <button id="btn3">RESERVE</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="house-card">
+                         <img src="image4.jpg" alt="" id="house-image">
+                         <div class="house-info">
+                              <p><b>LOCATION: UPTOWN, PRETORIA</b></p>
+                              <p><b>PRICE:3000USD</b></p>
+                              <button id="btn3">RESERVE</button>
+                         </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="house-card">
+                        <img src="image5.jpg" alt="" id="house-image">
+                        <div class="house-info">
+                             <p><b>LOCATION: MANDELA SQUARE, JOHANNESBURG</b></p>
+                             <p><b>PRICE:5000USD</b></p>  
+                             <button id="btn3">RESERVE</button> 
+                        </div>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+        <div id="Kenya" title="kenya">
+             <h2>KENYA</h2>
+             <ul>
+                <li>
+                    <div class="house-card">
+                          <img src="kenya1.jpg" alt="" id="house-image">
+                          <div class="house-info">
+                            <p><b>LOCATION: KILIMANI, NAIROBI</b></p>
+                            <p><b>PRICE:5600USD</b></p>
+                            <button id="btn3">RESERVE</button>
+                          </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="house-card">
+                        <img src="kenya2.jpg" alt="" id="house-image">
+                        <div class="house-info">
+                            <p><b>LOCATION: MILIMANI, NAKURU</b></p>
+                            <p><b>PRICE:2500USD</b></p>
+                            <button id="btn3">RESERVE</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="house-card">
+                        <img src="kenya3.jpg" alt="" id="house-image">
+                        <div class="house-info">
+                            <p><b>LOCATION: KONDELE, KISUMU</b></p>
+                            <p><b>PRICE:3000USD</b></p>
+                            <button id="btn3">RESERVE</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="house-card">
+                        <img src="kenya5.jpg" alt="" id="house-image">
+                        <div class="house-info">
+                            <p><b>LOCATION: UPPER HILL, NAIROBI</b></p>
+                            <p><b>PRICE:6000USD</b></p>
+                            <button id="btn3">RESERVE</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="house-card">
+                        <img src="Kenya6.jpg" alt="" id="house-image">
+                        <div class="house-info">
+                            <p><b>LOCATION: BAMBURI, MOMBASA</b></p>
+                            <p><b>PRICE:4500USD</b></p>
+                            <button id="btn3">RESERVE</button>
+                        </div>
+                    </div>
+                </li>
+             </ul>
+        </div>
+        
+    </div>
+    <div id="no-results" style="display:none; color: red;">No results found for your search.</div> <!-- No results message -->
+   
+   <script>
+   function checkEnter(event) {
+        // Check if the Enter key (key code 13) is pressed
+        if (event.key === 'Enter') {
+            search(); // Call the search function when Enter is pressed
+        }
+    }
+
+    function search() {
+        // Get the search input and convert it to lowercase for case-insensitive comparison
+        const query = document.getElementById('search').value.toLowerCase();
+
+        // Get all sections (like South Africa)
+        const sections = document.querySelectorAll('#houses > div');
+
+        // Flag to check if any result is found
+        let resultFound = false;
+
+        // Check each section for a match
+        sections.forEach((section) => {
+            // Get the title attribute of the section
+            const title = section.getAttribute('title');
+
+            // Check if the title exists and includes the query
+            if (title && title.toLowerCase().includes(query)) {
+                section.style.display = 'block'; // Show matching sections
+                resultFound = true;
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } 
+
+    });
+    const noResultsMessage = document.getElementById('no-results');
+        if (resultFound) {
+            noResultsMessage.style.display = 'none';
+        } else {
+            noResultsMessage.style.display = 'block';
+        }
+    }
+
+
+
+   </script>
+
+</body>
+</html>
